@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 
 namespace ContosoUniversity.Models
-{
+{ 
     public enum Grade
     {
         A, B, C, D, F
@@ -27,7 +27,7 @@ namespace ContosoUniversity.Models
         /// </summary>
 
         public int EnrollmentID { get; set; } //1
-        public int CourseID { get; set; } 
+        public int CourseID { get; set; }
         public int StudentID { get; set; } //4
         public Grade? Grade { get; set; } //2
 

@@ -1,12 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
 namespace ContosoUniversity.Models
 {
     public class Course
     {
         /// <summary>
-        /// Enrollements is a navigation property. 
+        /// Enrollments is a navigation property. 
         /// Course can be related to any Enrollment entity.
         /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
