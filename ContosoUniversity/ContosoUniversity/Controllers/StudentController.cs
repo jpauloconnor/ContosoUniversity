@@ -117,12 +117,24 @@ namespace ContosoUniversity.Controllers
             return View(studentToUpdate);
         }
 
+
+        /// <summary>
+        /// Parameter is optional below to indicate whether the method was called
+        /// after a failure to save changes.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="saveChangesError"></param>
+        /// <returns></returns>
         // GET: Student/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? id, bool? saveChangesError=false)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ViewBag.ErrorMessage = "The delete failed, yo. Try again, and if the problem persists, it might be time to quit programming.";
             }
             Student student = db.Students.Find(id);
             if (student == null)
@@ -132,14 +144,29 @@ namespace ContosoUniversity.Controllers
             return View(student);
         }
 
+        /// <summary>
+        /// This code performs the actual delete method.
+        /// 1. Calles the selected entity.
+        /// 2. Removes entity with Remove method.
+        /// 3. SaveChanges generates a SQL delete command.
+        /// </summary>
+        
         // POST: Student/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(int id)
         {
-            Student student = db.Students.Find(id);
-            db.Students.Remove(student);
-            db.SaveChanges();
+            try
+            {
+                Student student = db.Students.Find(id);
+                db.Students.Remove(student);
+                db.SaveChanges();
+            }
+            catch (DataException/* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                return RedirectToAction("Delete", new { id = id, saveChangesError = true });
+            }
             return RedirectToAction("Index");
         }
 
