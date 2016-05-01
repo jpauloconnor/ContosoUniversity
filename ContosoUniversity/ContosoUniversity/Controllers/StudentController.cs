@@ -46,7 +46,7 @@ namespace ContosoUniversity.Controllers
             }
             switch (sortOrder)
             {
-                case "name_desc":C:\Users\bahlrichs\Desktop\TheContosoUniversity\ContosoUniversity\ContosoUniversity\Controllers\StudentController.cs
+                case "name_desc":
                     students = students.OrderByDescending(s => s.LastName);
                     break;
                 case "Date":
@@ -110,6 +110,7 @@ namespace ContosoUniversity.Controllers
                     return RedirectToAction("Index");
                 }
             }
+            //
             catch (RetryLimitExceededException /*dex */)
             {
                 //Log the error (uncomment dex variable name and add a line here to write a log.
