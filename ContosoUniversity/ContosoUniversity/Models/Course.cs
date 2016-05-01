@@ -21,3 +21,5 @@ namespace ContosoUniversity.Models
         public virtual ICollection<Enrollment> Enrollments { get; set; }
     }
 }
+
+//Really want the db to work, dangit!
