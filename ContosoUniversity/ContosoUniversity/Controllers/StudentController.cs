@@ -15,11 +15,38 @@ namespace ContosoUniversity.Controllers
     {
         private SchoolContext db = new SchoolContext();
 
+        /// <summary>
+        /// Here were implementing code to allow for sorting.
+        /// </summary>
+
         // GET: Student
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            return View(db.Students.ToList());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var students = from s in db.Students
+                           select s;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    students = students.OrderByDescending(s => s.LastName);
+                    break;
+                case "Date":
+                    students = students.OrderBy(s => s.EnrollmentDate);
+                    break;
+                case "date_desc":
+                    students = students.OrderByDescending(s => s.EnrollmentDate);
+                    break;
+                default:
+                    students = students.OrderBy(s => s.LastName);
+                    break;
+            }
+            return View(students.ToList());
         }
+
+
+
+
         /// <summary>
         /// FIND METHOD: Used to retrieve a single Student entity.
         /// Key value is passed and comes from route data in the Details hyperlink
@@ -170,6 +197,11 @@ namespace ContosoUniversity.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// This dispose is used to close db connections and free up reources
+        /// as soon as possible. 
+        /// </summary>
+        /// <param name="disposing"></param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)
