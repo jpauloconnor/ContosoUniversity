@@ -49,3 +49,4 @@ C:\Users\bahlrichs\Desktop\TheContosoUniversity\ContosoUniversity\ContosoUnivers
 C:\Users\bahlrichs\Desktop\TheContosoUniversity\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.InitialCreate.resources
 C:\Users\bahlrichs\Desktop\TheContosoUniversity\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.csproj.GenerateResource.Cache
 C:\Users\bahlrichs\Desktop\TheContosoUniversity\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.MaxLengthOnNames.resources
+C:\Users\bahlrichs\Desktop\TheContosoUniversity\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.ColumnFirstName.resources
