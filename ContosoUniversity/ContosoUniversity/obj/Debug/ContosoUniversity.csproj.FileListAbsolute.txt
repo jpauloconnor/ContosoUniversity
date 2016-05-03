@@ -46,3 +46,6 @@ C:\Users\bahlrichs\Desktop\TheContosoUniversity\ContosoUniversity\ContosoUnivers
 C:\Users\bahlrichs\Desktop\TheContosoUniversity\ContosoUniversity\ContosoUniversity\bin\PagedList.Mvc.dll
 C:\Users\bahlrichs\Desktop\TheContosoUniversity\ContosoUniversity\ContosoUniversity\bin\PagedList.xml
 C:\Users\bahlrichs\Desktop\TheContosoUniversity\ContosoUniversity\ContosoUniversity\bin\PagedList.Mvc.xml
+C:\Users\bahlrichs\Desktop\TheContosoUniversity\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.InitialCreate.resources
+C:\Users\bahlrichs\Desktop\TheContosoUniversity\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.csproj.GenerateResource.Cache
+C:\Users\bahlrichs\Desktop\TheContosoUniversity\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.MaxLengthOnNames.resources
