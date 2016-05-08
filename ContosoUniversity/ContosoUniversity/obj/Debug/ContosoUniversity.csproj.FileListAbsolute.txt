@@ -51,3 +51,5 @@ C:\Users\bahlrichs\Desktop\TheContosoUniversity\ContosoUniversity\ContosoUnivers
 C:\Users\bahlrichs\Desktop\TheContosoUniversity\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.MaxLengthOnNames.resources
 C:\Users\bahlrichs\Desktop\TheContosoUniversity\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.ColumnFirstName.resources
 C:\Users\bahlrichs\Desktop\TheContosoUniversity\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.ComplexDataModel.resources
+C:\Users\bahlrichs\Desktop\TheContosoUniversity\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.DepartmentSP.resources
+C:\Users\bahlrichs\Desktop\TheContosoUniversity\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.rowversion.resources
