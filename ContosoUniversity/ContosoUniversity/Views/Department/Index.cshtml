@@ -1,14 +1,22 @@
 ﻿@model IEnumerable<ContosoUniversity.Models.Department>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Departments";
 }
 
-<h2>Index</h2>
+<h2>Departments</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<!--
+1. We're printing the column headings here. The DisplayNameFor will default to the property name in the model
+    unless we add a Display decorator in the model. Go to the Department model and check out the start date propety for an example.
+    "StartDate"
+2.  Experiement: Change the Budget name to "Cash Money" or something silly like that.  
+
+-->
 <table class="table">
     <tr>
         <th>
@@ -23,13 +31,23 @@
         <th>
             @Html.DisplayNameFor(model => model.StartDate)
         </th>
-        <th></th>
+        <th>
+            Administrator
+            </th>
     </tr>
+<!--More razor here: 
+   1. -This is the powerful piece that will allow us to print out the data from the database.  
+      -Remember that in a foreach loop, we declare a variable "item"
+      -State what we'd like to loop through. In this case, it's Model. The model in the top is "Department"
+      -We have access to all those properties. 
+   2. Experiement:
 
+    -->
+    
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Administrator.LastName)
+            @Html.DisplayFor(modelItem => item.Administrator.LastName)<!--2-->
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
@@ -39,6 +57,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Administrator.FullName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.DepartmentID }) |
