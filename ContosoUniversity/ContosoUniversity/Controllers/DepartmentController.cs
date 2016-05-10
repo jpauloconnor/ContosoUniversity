@@ -191,23 +191,26 @@ namespace ContosoUniversity.Controllers
         }
 
         // POST: Department/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int id)
+        public async Task<ActionResult> Delete(Department department)
         {
-            Department department = await db.Departments.FindAsync(id);
-            db.Departments.Remove(department);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
+            try
             {
-                db.Dispose();
+                db.Entry(department).State = EntityState.Deleted;
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
             }
-            base.Dispose(disposing);
+            catch (DbUpdateConcurrencyException)
+            {
+                return RedirectToAction("Delete", new { concurrencyError = true, id = department.DepartmentID });
+            }
+            catch (DataException /* dex */)
+            {
+                //Log the error (uncomment dex variable name after DataException and add a line here to write a log.
+                ModelState.AddModelError(string.Empty, "Unable to delete. Try again, and if the problem persists contact your system administrator.");
+                return View(department);
+            }
         }
     }
 }
